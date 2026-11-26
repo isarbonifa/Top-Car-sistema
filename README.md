@@ -1,4 +1,8 @@
-# 🚗 Top Car
+<p align="center">
+  <img src="app/views/static/logo.png" alt="Logo Top Car" width="200">
+</p>
+
+<h1 align="center">Top Car</h1>
 
 Aplicação web **MPA** (Multi-Page Application) desenvolvida com **Flask**, **Jinja2** e **SQLite3**. O site hospeda o jogo de corrida *Top Car*, cujo motor foi programado em **C** com a biblioteca **raylib** e roda embutido no navegador. Os usuários podem se cadastrar, jogar, comentar sobre o jogo e enviar sugestões.
 
@@ -89,7 +93,7 @@ Acesse `http://127.0.0.1:5000`.
 
 ### Usuário administrador
 
-O `iniciar_db.py` cria o usuário `admin` (senha inicial `admin123`). **Troque essa senha** antes de publicar o projeto.
+O `iniciar_db.py` cria o usuário `admin` (senha inicial `admin123`).
 
 ## Créditos
 
