@@ -1,7 +1,4 @@
-<p display="flex" flex-direction="row">
-  <img src="app/views/static/logo.png" alt="Logo Top Car" width="200">
-  <h1>Top Car</h1>
-</p>
+# Top Car
 
 Aplicação web **MPA** (Multi-Page Application) desenvolvida com **Flask**, **Jinja2** e **SQLite3**. O site hospeda o jogo de corrida *Top Car*, cujo motor foi programado em **C** com a biblioteca **raylib** e roda embutido no navegador. Os usuários podem se cadastrar, jogar, comentar sobre o jogo e enviar sugestões.
 
