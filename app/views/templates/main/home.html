@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Top Car - Início{% endblock %}
+
+{% block body_class %}home-body tema-escuro{% endblock %}
+
+<!-- Header exclusivo da Home (transparente por cima do vídeo) -->
+{% block header %}
+<header class="home-header" style="position: fixed;">
+    <div class="logo-container">
+        <a href="{{ url_for('main.home') }}">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Top Car Logo" class="logo">
+        </a>
+    </div>
+    <div class="nav-right">
+        {% if session.get('user') %}
+            <a href="{{ url_for('main.welcome') }}">Painel</a>
+            <a href="{{ url_for('auth.logout') }}" class="highlight">Sair</a>
+        {% else %}
+            <a href="{{ url_for('auth.login') }}" style="color: white !important;">Login</a>
+            <a href="{{ url_for('auth.register') }}" class="highlight">Cadastre-se</a>
+        {% endif %}
+    </div>
+</header>
+{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block conteudo %}
+<!-- Seção Hero com Vídeo em Tela Cheia -->
+<section class="hero-video-section">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="{{ url_for('static', filename='video1.mp4') }}" type="video/mp4">
+        Seu navegador não suporta vídeos em HTML5.
+    </video>
+    <div class="hero-overlay"></div>
+   
+    <div class="hero-content">
+        <h1 style="color: #ffeb3b !important">Sinta a Velocidade dos Arcade Clássicos</h1>
+        <p style="color: #ccc !important;">Entre na pista, dispute o topo do placar e mostre quem é o mais rápido.</p>
+        <a href="{{ url_for('auth.register') }}" class="btn-cta-pulse">Jogar Agora (Cadastre-se)</a>
+    </div>
+</section>
+
+<!-- Seção de Galeria / Fotos Flutuantes -->
+<section class="gallery-floating-section">
+    <h2>Conheça o Jogo por Dentro</h2>
+    <div class="floating-grid">
+        <div class="floating-card">
+            <img src="{{ url_for('static', filename='img1.png') }}" alt="Escolha do Carro">
+            <p>Escolha seu possante</p>
+        </div>
+        <div class="floating-card">
+            <img src="{{ url_for('static', filename='img2.png') }}" alt="Gameplay">
+            <p>Pistas cheias de desafio</p>
+        </div>
+        <div class="floating-card">
+            <img src="{{ url_for('static', filename='img3.png') }}" alt="Fim de Corrida">
+            <p>Cruze a linha de chegada</p>
+        </div>
+    </div>
+</section>
+
+<!-- Seção de Desenvolvimento & Créditos -->
+<section class="dev-credits-section">
+    <div class="dev-container">
+        <div class="dev-info">
+            <h3>Sobre o Projeto & API</h3>
+            <p style="color: white !important;">
+                Este projeto é uma aplicação MPA desenvolvida com <strong>Flask</strong>, <strong>Jinja2</strong> e banco de dados <strong>SQLite3</strong>.
+                O motor do jogo foi programado em <strong>C</strong> utilizando a biblioteca para jogos <strong>raylib</strong>.
+            </p>
+            <a href="https://github.com/isarbonifa/Top-Car-sistema" target="_blank" class="github-link">💻 Ver Código Fonte no GitHub</a>
+        </div>
+
+        <div class="credits-info">
+            <h3>Créditos e Atribuições</h3>
+            <p class="free-notice" style="color: #f39c12 !important;">⚠️ As artes e recursos abaixo são livres para uso público, mas os criadores aceitam doações caso queira apoiar o trabalho deles:</p>
+            <ul>
+                <li><strong>Áudios:</strong> <a href="https://flowerheadmusic.itch.io/" target="_blank">Flowerhead</a></li>
+                <li><strong>Cenário:</strong> <a href="https://astrocom.itch.io/" target="_blank">AstroCom</a></li>
+                <li><strong>Carros:</strong> <a href="https://patricio449.itch.io/" target="_blank">Pay 'n' Sprite</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

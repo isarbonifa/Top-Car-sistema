@@ -1,0 +1,763 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #353434;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #2b2d42;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100px;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 10;
+}
+
+header .header-spacer {
+    width: 60px; /* Equilibra o espaço à esquerda para centralizar a logo */
+}
+
+header .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img.logo {
+    height: 110px;
+    object-fit: contain;
+}
+
+header .nav-right a {
+    color: #ffeb3b;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+header .nav-right a:hover {
+    color: #fff;
+}
+
+/* Main Container (Centralizado) */
+main.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* Cards de Login e Cadastro */
+.card {
+    background: transparent;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    border: none;
+}
+
+.card h2 {
+    color: #ffeb3b;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Labels com cor bem clara para enxergar perfeitamente no fundo escuro */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #ffffff; 
+    font-size: 1rem;
+}
+
+/* Inputs com fundo escuro sólido e texto branco legível */
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #1a1a24; 
+    border: 1px solid #aa0b82; 
+    border-radius: 4px; 
+    font-size: 1rem;
+    color: #ffffff; /* Garante que o que você digita fica branco e visível */
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: #888888;
+}
+
+.form-group input:focus {
+    border-color: #ffeb3b;
+    background-color: #222230;
+    box-shadow: 0 0 10px rgba(170, 11, 130, 0.5);
+}
+
+/* Botão retangular estilo arcade */
+button.btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #aa0b82;
+    color: #ffeb3b;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+button.btn:hover {
+    background-color: #c20c94;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Textos e links de rodapé do card com excelente contraste */
+.card p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: #cccccc;
+}
+
+.card p a {
+    color: #ffeb3b;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.card p a:hover {
+    color: #aa0b82;
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    border-top: 4px solid #ffeb3b;
+}
+
+/* Layout alinhado à esquerda (para welcome e listagem) */
+main.container-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.content-box {
+    width: 100%;
+    color: #ffffff;
+}
+
+.content-box h1, 
+.content-box h2, 
+.content-box h3 {
+    color: #ffeb3b;
+    margin-bottom: 12px;
+}
+
+.content-box p,
+.subtitle {
+    color: #e0e0e0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Botões e Links em formato de botão */
+.btn-link {
+    display: inline-block;
+    background-color: #aa0b82;
+    color: #ffeb3b;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-link:hover {
+    background-color: #880967;
+}
+
+/* Banner de comentários na Welcome */
+.comment-banner {
+    background-color: #16161d;
+    border: 1px solid #2b2d42;
+    border-left: 5px solid #aa0b82;
+    padding: 25px;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.comment-banner p {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+/* --- TABELA DE USUÁRIOS --- */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #16161d;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 15px;
+    border: 1px solid #2b2d42;
+}
+
+.styled-table thead tr {
+    background-color: #aa0b82;
+    color: #ffeb3b;
+    text-align: left;
+    font-weight: bold;
+}
+
+.styled-table th, 
+.styled-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #2b2d42;
+    color: #ffffff;
+}
+
+.styled-table tbody tr:hover {
+    background-color: rgba(170, 11, 130, 0.15);
+}
+
+.empty-row {
+    text-align: center;
+    color: #aaaaaa;
+    font-style: italic;
+}
+
+/* --- SEÇÃO DE COMENTÁRIOS --- */
+.comment-form-card {
+    background-color: #16161d;
+    padding: 25px;
+    border-radius: 4px;
+    border: 1px solid #2b2d42;
+    border-left: 5px solid #aa0b82;
+}
+
+.comment-form-card textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #0c0c10;
+    border: 1px solid #aa0b82;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    resize: vertical;
+}
+
+.comment-form-card textarea:focus {
+    border-color: #ffeb3b;
+}
+
+.comment-card {
+    background-color: #16161d;
+    padding: 18px 20px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    position: relative; 
+    border: 1px solid #2b2d42;
+}
+
+.comment-header-info {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.comment-date,
+.edited-tag {
+    color: #999999;
+    font-size: 0.85rem;
+    margin-left: 6px;
+}
+
+.comment-text {
+    color: #f1f1f1;
+    margin-top: 8px;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffffff;
+    padding: 0 8px;
+    line-height: 1;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #1e1e28;
+    min-width: 110px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+    z-index: 10;
+    border-radius: 4px;
+    border: 1px solid #aa0b82;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a, 
+.dropdown-content button {
+    color: #ffffff;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    text-align: left;
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+.dropdown-content a:hover, 
+.dropdown-content button:hover {
+    background-color: #aa0b82;
+    color: #ffeb3b;
+}
+
+.delete-btn-link {
+    font-family: inherit;
+}
+
+/* --- HEADER TRANSPARENTE EXCLUSIVO DA HOME --- */
+.home-header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent !important; /* Totalmente transparente, sem tarja preta */
+    box-shadow: none !important;
+    z-index: 1000;
+    padding: 25px 40px;
+    height: 100px;
+}
+
+.home-header img.logo {
+    height: 110px; /* Tamanho ideal para aparecer inteira e imponente */
+}
+
+.home-header .nav-right a {
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+.home-header .nav-right a.highlight {
+    background-color: #aa0b82;
+    color: #ffeb3b;
+}
+
+.home-header .nav-right a.highlight:hover {
+    background-color: #880967;
+}
+
+/* --- CORREÇÃO DA HOME COM VÍDEO --- */
+.home-body {
+    background-color: #111;
+}
+
+/* --- SEÇÃO HERO VÍDEO (Home) --- */
+.hero-video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 0; /* Puxa o vídeo para cima para ocupar o espaço do header transparente */
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45); /* Escurece levemente o vídeo para destacar o texto */
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    color: #ffeb3b;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+/* Botão com efeito de destaque */
+.btn-cta-pulse {
+    display: inline-block;
+    background-color: #aa0b82;
+    color: #ffeb3b;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 4px; /* Retangular */
+    text-decoration: none;
+    box-shadow: 0 0 20px rgba(170, 11, 130, 0.6);
+    transition: transform 0.3s, background 0.3s;
+}
+
+.btn-cta-pulse:hover {
+    transform: scale(1.05);
+    background-color: #c20c94;
+    color: #fff;
+}
+
+/* Seção de Fotos Flutuantes */
+.gallery-floating-section {
+    padding: 80px 20px;
+    background: #1a1a2e;
+    text-align: center;
+}
+
+.gallery-floating-section h2 {
+    color: #ffeb3b;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.floating-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.floating-card {
+    background: #2b2d42;
+    border-radius: 12px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transform: translateY(0);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.floating-card:hover {
+    transform: translateY(-10px); /* Efeito flutuando ao passar o mouse */
+    box-shadow: 0 15px 40px rgba(170, 11, 130, 0.3);
+}
+
+.floating-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.floating-card p {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Seção de Desenvolvimento e Créditos */
+.dev-credits-section {
+    background: #111;
+    color: #ccc !important;
+    padding: 70px 20px;
+    border-top: 2px solid #2b2d42;
+}
+
+.dev-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.dev-info h3, .credits-info h3 {
+    color: #aa0b82;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.dev-info p, .credits-info p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.github-link {
+    display: inline-block;
+    background-color: #2b2d42;
+    color: #ffeb3b;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #ffeb3b;
+    transition: background 0.3s;
+}
+
+.github-link:hover {
+    background-color: #ffeb3b;
+    color: #2b2d42;
+}
+
+.free-notice {
+    font-size: 0.9rem;
+    color: #f39c12;
+    font-style: italic;
+}
+
+.credits-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.credits-info li {
+    margin-bottom: 10px;
+}
+
+.credits-info a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.credits-info a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .dev-container {
+        grid-template-columns: 1fr;
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Container restrito para as mensagens flash não esticarem a tela inteira */
+.flash-container {
+    max-width: 600px;
+    margin: 15px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Corrige o layout da página Welcome e Listagens para ficarem alinhadas à esquerda em coluna */
+main.container-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Container global das mensagens flash */
+.flash-container {
+    max-width: 800px;
+    margin: 20px auto;
+    margin-bottom: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Remove as bolinhas de lista e estiliza o container */
+.flash-messages {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo base de cada alerta flash */
+.flash-messages li {
+    padding: 14px 18px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border-left: 5px solid;
+}
+
+/* Categoria: Sucesso (Verde escuro/neon sutil) */
+.flash-messages li.success {
+    background-color: rgba(21, 87, 36, 0.85);
+    color: #d4edda;
+    border-color: #28a745;
+}
+
+/* Categoria: Erro / Danger (Vermelho escuro) */
+.flash-messages li.danger {
+    background-color: rgba(114, 28, 36, 0.85);
+    color: #f8d7da;
+    border-color: #dc3545;
+}
+
+/* Categoria: Aviso / Warning (Amarelo/Laranja escuro) */
+.flash-messages li.warning {
+    background-color: rgba(133, 100, 4, 0.85);
+    color: #fff3cd;
+    border-color: #ffc107;
+}
+
+/* Categoria: Info (Azul escuro) */
+.flash-messages li.info {
+    background-color: rgba(23, 162, 184, 0.85);
+    color: #d1ecf1;
+    border-color: #17a2b8;
+}
+
+
+/* ================= TEMA CLARO (LIGHT MODE) ================= */
+body.tema-claro {
+    background-color: #f4f4f9;
+    color: #1a1a2e;
+}
+
+body.tema-claro .content-box{
+    background-color: #f4f4f9;
+}
+
+body.tema-claro .comment-form-card,
+body.tema-claro .comment-card,
+body.tema-claro .comment-banner {
+    background-color: #ffffff;
+    color: #1a1a2e;
+    border: 1px solid #d1d1e0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Garante que os parágrafos e textos secundários fiquem escuros e legíveis */
+body.tema-claro p,
+body.tema-claro label,
+body.tema-claro span {
+    color: #333333 !important;
+}
+
+body.tema-claro h1, 
+body.tema-claro h2, 
+body.tema-claro h3,
+body.tema-claro h4 {
+    color: #aa0b82 !important;
+}
+
+body.tema-claro input,
+body.tema-claro textarea,
+body.tema-claro select {
+    background-color: #f8f9fa !important;
+    color: #1a1a2e !important;
+    border: 1px solid #ccc !important;
+}
+
+/* Estilo padrão e visível para o botão Painel no header */
+body.tema-claro header .btn-painel, 
+body.tema-claro header a[href*="welcome"],
+body.tema-claro header a[href*="painel"],
+body.tema-claro header a[href*="login"] {
+    color: #000000 !important;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}

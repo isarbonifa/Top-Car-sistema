@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Top Car - Painel{% endblock %}
+
+{% block main_class %}container-left{% endblock %}
+
+{% block conteudo %}
+<div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
+    
+    <!-- COLUNA ESQUERDA (Conteúdo principal: Boas-vindas, Perfil, Banner do Jogo) -->
+    <div style="flex: 2; min-width: 300px;">
+        <div class="content-box" style="margin-bottom: 20px;">
+            <h1>Bem-vindo(a), {{ g.usuario.username }}! 🎮</h1>
+            <p>Você está logado no sistema da Top Car.</p>
+            <a href="{{ url_for('usuarios.listar_usuarios') }}" class="btn-link" style="background-color: #4b4e71; color: white;">Ver Usuários Cadastrados</a>
+        </div>
+
+        <!-- Caixinha do Perfil -->
+        <div class="comment-form-card" style="display: flex; align-items: center; justify-content: space-between; margin: 25px 0; flex-wrap: wrap; gap: 20px; margin-bottom: 15px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                {% if g.usuario.foto %}
+                    <img src="{{ url_for('static', filename='uploads/' + g.usuario.foto) }}" alt="Foto" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid #aa0b82;">
+                {% else %}
+                    <img src="{{ url_for('static', filename='uploads/default.avif') }}" alt="Foto Padrão" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid #aa0b82;">
+                {% endif %}
+                <div>
+                    <h3 style="color: #ffeb3b; margin: 0 0 5px 0;">{{ g.usuario.username }}</h3>
+                    <p style="margin: 0; color: #aaa; font-size: 0.9rem;">E-mail: {{ g.usuario.email or 'Não cadastrado' }}</p>
+                    <p style="margin: 0; color: #aaa; font-size: 0.85rem;">Membro desde: {{ g.usuario.criado_em }}</p>
+                </div>
+            </div>
+            <div>
+                <a href="{{ url_for('usuarios.perfil') }}" class="btn-link" style="padding: 10px 20px; background-color: #aa0b82; color: #ffeb3b; border-radius: 4px; text-decoration: none; font-weight: bold;">Editar Perfil</a>
+            </div>
+        </div>
+
+        <!-- Bloquinho Superior Direito (Acesso ao Jogo) -->
+        <div class="content-box area" style="text-align: center; border: 2px solid #ffeb3b; background: rgba(12, 12, 16, 0.) !important; padding: 15px;">
+            <h3 style="color: #ffeb3b; margin-bottom: 10px;">Área do Jogo</h3>
+            <p style="font-size: 0.9rem; color: #ccc; margin-bottom: 15px;">Clique abaixo para iniciar a partida do Top Car.</p>
+            <!-- Substitua o '#' pelo link ou rota real da página do jogo -->
+            <a href="{{url_for('main.jogo')}}" class="btn-link" style="background-color: #ffeb3b; color: #000; font-weight: bold; display: block; text-align: center;">ACESSAR O JOGO 🚀</a>
+        </div>
+        
+    </div>
+
+    <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 20px;">
+       
+        <div class="comment-banner" style="border: 2px solid #aa0b82; border-radius: 8px;">
+            <p style="margin-bottom: 10px;">Tem algum comentário sobre o jogo? Escreva na seção de comentários!</p>
+            <a href="{{ url_for('comentarios.comentarios') }}" class="btn-link" style="background-color: #2b2d42; color: #fff; display: block; text-align: center;">Ir para Seção de Comentários</a>
+        </div>
+
+
+        <!-- Bloquinho Inferior Direito (Gerenciar Feedbacks / Sugestões) -->
+        <div class="comment-form-card" style="text-align: center; border: 2px solid #aa0b82; border-radius: 8px;">
+            <h3 style="color: #ffeb3b; margin-bottom: 8px; font-size: 1.1rem;">Feedback / Sugestões</h3>
+            <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 12px;">Envie sua sugestão ou ideia.</p>
+            <a href="{{ url_for('sugestoes.sugestoes') }}" class="btn-link" style="background-color: #2b2d42; color: #fff; display: block; text-align: center;">Gerenciar Sugestões</a>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

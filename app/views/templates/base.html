@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}TopCar{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}, {{ request.cookies.get('tema_preferido', 'tema-escuro') }}">
+
+    <!-- Header dinâmico -->
+    {% block header %}
+    <header class="home-header">
+        <div class="logo-container">
+            <a href="{{ url_for('main.home') }}">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Top Car Logo" class="logo">
+            </a>
+        </div>
+        <div class="nav-right">
+            {% if session.get('user') %}
+                <a href="{{ url_for('main.welcome') }}" class="nav-btn">Painel</a>
+                <a href="{{ url_for('auth.logout') }}" class="nav-btn highlight">Sair</a>
+            {% else %}
+                <a href="{{ url_for('auth.login') }}" class="nav-btn">Login</a>
+                <a href="{{ url_for('auth.register') }}" class="nav-btn highlight">Cadastre-se</a>
+            {% endif %}
+        </div>
+    </header>
+    {% endblock %}
+
+    <!-- Mensagens Flash Globais -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-container">
+        <ul class="flash-messages">
+            {% for cat, msg in messages %}
+            <li class="{{ cat }}">{{ msg }}</li>
+            {% endfor %}
+        </ul>
+        </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Conteúdo Principal injetado -->
+    <main class="{% block main_class %}container{% endblock %}">
+        {% block conteudo %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        Top Car, 2026.
+    </footer>
+
+</body>
+</html>

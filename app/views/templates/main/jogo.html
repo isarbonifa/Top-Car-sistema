@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Top Car - Jogar{% endblock %}
+
+{% block main_class %}container-left{% endblock %}
+
+{% block conteudo %}
+<div class="content-box" style="text-align: center; max-width: 1000px; margin: 0 auto;">
+
+    <!-- Barra de Controles e Instruções -->
+    <div class="comment-form-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 25px; text-align: left;">
+        <div>
+            <p style="margin: 0; color: #ffeb3b; font-weight: bold;">🕹️ Instruções:</p>
+            <p style="margin: 5px 0 0 0; color: #e0e0e0; font-size: 0.95rem;">Clique no jogo para começar. Use as <strong>Setas</strong> para dirigir e <strong>ENTER</strong> para confirmar.</p>
+        </div>
+        <div>
+            <button onclick="tentarTelaCheia()" class="btn-link" style="background-color: #aa0b82; color: #ffeb3b; border: none; cursor: pointer; padding: 10px 20px; font-size: 1rem;">📺 Tela Cheia</button>
+        </div>
+    </div>
+
+    <!-- Container do Jogo com moldura arcade -->
+    <div class="jogo-wrap" id="container-jogo" style="border: 3px solid #aa0b82; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(170, 11, 130, 0.4); background: #000; margin-bottom: 20px;">
+      <iframe id="jogo"
+              src="{{ url_for('static', filename='jogo/index.html') }}"
+              title="Top Car"
+              allow="autoplay; fullscreen; accelerometer; gyroscope"
+              allowfullscreen
+              style="width: 100%; height: 100%; border: 0; display: block;"></iframe>
+    </div>
+
+    <!-- Botão de Voltar -->
+    <div style="text-align: left;">
+        <a href="{{ url_for('main.welcome') }}" class="btn-link" style="background-color: #4b4e71; color: #fff;">Voltar ao Painel</a>
+    </div>
+
+</div>
+
+<script>
+    window.SAIR_URL = "{{ url_for('main.welcome') }}";
+
+    function tentarTelaCheia() {
+        // Pega o container inteiro do jogo em vez de só o iframe (o que evita bloqueios de permissão do navegador)
+        const elem = document.getElementById('container-jogo');
+        
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen().catch(err => {
+                alert("Erro ao entrar em tela cheia: " + err.message);
+            });
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+            elem.msRequestFullscreen();
+        }
+    }
+</script>
+
+<style>
+  .jogo-wrap { 
+      width: min(100%, 960px); 
+      margin: 0 auto; 
+      aspect-ratio: 16 / 9; 
+  }
+</style>
+{% endblock %}

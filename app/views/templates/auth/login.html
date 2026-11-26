@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Top Car - Login{% endblock %}
+{% block conteudo %}
+
+<div class="card">
+    <h2>Login</h2>
+
+    <form method="POST">
+        <div class="form-group">
+            <label>Usuário:</label>
+            <input type="text" name="username" required>
+        </div>
+
+        <div class="form-group">
+            <label>Senha:</label>
+            <input type="password" name="password" required>
+        </div>
+
+        <button type="submit" class="btn">Entrar</button>
+    </form>
+
+    <p>Não tem conta? <a href="{{ url_for('auth.register') }}">Cadastre-se</a></p>
+</div>
+
+{% endblock %}
