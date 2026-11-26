@@ -1,4 +1,4 @@
-<p display="flex">
+<p display="flex" flex-direction="row">
   <img src="app/views/static/logo.png" alt="Logo Top Car" width="200">
   <h1>Top Car</h1>
 </p>
